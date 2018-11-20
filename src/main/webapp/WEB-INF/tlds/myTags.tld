@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+  <description>Ma Bibliothèque de tags</description>
+  <display-name>Ma bibliotheque de tags</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>myTags</short-name>
+  <uri>/WEB-INF/tlds/myTags</uri>
+
+
+
+  <tag>
+  	<description>Mon tag pour afficher</description>
+  	<name>afficher</name>
+  	<tag-class>myTags.AfficherTag</tag-class>
+  	<body-content>empty</body-content>
+
+  	<attribute>
+  		<name>valeur</name>
+  	</attribute>
+  </tag>	
+	
+  <tag>
+  	<name>switch</name>
+  	<tag-class>myTags.SwitchTag</tag-class>
+  	<body-content>JSP</body-content>
+  	<attribute>
+  		<name>test</name>
+  		<required>true</required>
+  	</attribute>
+  </tag>
+		
+  <tag>
+  	<name>case</name>
+  	<tag-class>myTags.CaseTag</tag-class>
+  	<body-content>JSP</body-content>
+  	<attribute>
+  		<name>value</name>
+  		<required>true</required>
+  	</attribute>
+  </tag>
+
+  <tag>
+  	<name>paramPresent</name>
+  	<tag-class>myTags.ParamPresentTag</tag-class>
+  	<body-content>JSP</body-content>
+  	<attribute>
+  		<name>name</name>
+  		<required>true</required>
+  	</attribute>
+  </tag>
+
+<tag>
+  	<name>evalexpressattribut</name>
+  	<tag-class>myTags.JSPEvalExpressionAttribut</tag-class>
+  	<body-content>empty</body-content>
+  	<attribute>
+  		<name>value</name>
+  		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  </tag>
+
+<tag>
+  	<name>tagarraylist</name>
+  	<tag-class>myTags.HelloTagArrayList2</tag-class>
+  	<body-content>JSP</body-content>
+  	<attribute>
+  		<name>bean</name>
+  		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  </tag>
+  
+  <tag>
+  	<name>iteratetag</name>
+  	<tag-class>myTags.IterateSimpleTag</tag-class>
+  	<body-content>JSP</body-content>
+  	<attribute>
+  		<name>count</name>
+  		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  </tag>
+
+  <tag>
+  	<name>upperCase</name>
+  	<tag-class>myTags.UpperCaseTag</tag-class>
+  	<body-content>JSP</body-content>
+  </tag>
+	
+</taglib>

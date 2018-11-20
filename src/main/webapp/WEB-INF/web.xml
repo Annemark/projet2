@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" 
+version="3.1">
+  <display-name>projet2</display-name>
+ <!--  <servlet>
+  	<description>Ma premiere servlet</description>
+  	<display-name>ParamsServlet</display-name>  	
+  	<servlet-name>ParamsServlet</servlet-name>
+  	<servlet-class>fr.dawan.projet2.controllers.ParamsServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ParamsServlet</servlet-name>
+  	<url-pattern>/params-servlet</url-pattern>
+  </servlet-mapping> -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <listener>
+  	<listener-class>fr.dawan.projet2.controllers.MySessionListener</listener-class>
+  </listener>
+ 
+ 
+  <!-- <filter>
+  	<description>
+  	</description>
+  	<display-name>LoginFilter</display-name>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>fr.dawan.projet2.controllers.LoginFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/backoffice/*</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  	<dispatcher>FORWARD</dispatcher>
+  	<dispatcher>INCLUDE</dispatcher>
+  	<dispatcher>ERROR</dispatcher>
+  </filter-mapping> -->
+  
+	<filter>
+	  <filter-name>sitemesh</filter-name>
+	  <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	  <filter-name>sitemesh</filter-name>
+	  <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+  <session-config>
+  	<session-timeout>
+  	<!-- En minutes -->
+  		5
+  	</session-timeout>
+  	<!-- cookie-config : config du cookie de session -->
+  	<!-- tacking-mode : sessionid en url ou en cookie... -->
+  </session-config>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<exception-type>java.lang.Throwable</exception-type>
+  	<location>/error.jsp</location>
+  </error-page>
+  
+  <resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/TestDB</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth> <!-- Côté server -->
+  </resource-ref>
+  
+  <context-param>
+  	<param-name>author</param-name>
+  	<param-value>Christopher</param-value>
+  </context-param>
+  <security-role>
+  	<role-name>adminProject2</role-name>
+  </security-role>
+  <security-constraint>
+	<web-resource-collection>
+		<web-resource-name></web-resource-name>
+		<url-pattern>/secured/*</url-pattern>
+		<http-method>GET</http-method>
+		<http-method>POST</http-method>
+	</web-resource-collection>
+	<auth-constraint>
+		<role-name>adminProject2</role-name>
+	</auth-constraint>
+	<!-- 
+	SSL :
+	<user-data-constraint>
+		<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+	</user-data-constraint> -->
+  </security-constraint>
+  <login-config>
+  	<auth-method>FORM</auth-method> <!-- BASIC, DIGEST -->
+ 		<form-login-config>
+ 			<!-- le form de login doit pointer vers l'action :
+ 			j_security_check
+ 			et les inputs doivent porter le name:
+ 			j_username et j_password
+ 			 -->
+ 			<form-login-page>/loginServerSecurity.jsp</form-login-page>
+ 			<form-error-page>/loginError.jsp</form-error-page>
+ 		</form-login-config>
+  </login-config>
+</web-app>
