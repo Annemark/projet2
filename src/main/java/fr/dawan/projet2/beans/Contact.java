@@ -7,7 +7,7 @@ public class Contact {
 	private String name;
 	private String email;
 	private String password;
-	
+	//Anni2
 	public Contact() {
 		super();	
 	}

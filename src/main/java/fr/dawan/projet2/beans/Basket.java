@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Basket {
+	//Anni 
 	private List<BasketLine> lines;
 	
 	public Basket() {
