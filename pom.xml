@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.46</version>
+			<version>8.0.28</version>
 			<!-- <scope>provided</scope> --><!-- fourni par le serveur : à faire une fois qu'on 
 				a déplacé le fichier mysql-connector-java-5.1.46.jar dans tomcat -->
 		</dependency>
